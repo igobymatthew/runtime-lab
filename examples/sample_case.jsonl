@@ -1,0 +1,2 @@
+{"id":"case-pass-alpha","task":"local_pdf_qa","input":{"document_text":"The local PDF states that the release codename is alpha.","question":"What is the release codename?"},"expected":{"answer":"alpha"},"metadata":{"source":"bigset-local","split":"demo"}}
+{"id":"case-fail-beta","task":"local_pdf_qa","input":{"document_text":"The local PDF states that the release codename is beta.","question":"What is the release codename?"},"expected":{"answer":"beta"},"metadata":{"source":"bigset-local","split":"demo"}}

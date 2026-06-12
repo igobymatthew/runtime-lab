@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "runtime-lab"
+version = "0.1.0"
+description = "Minimal local integration harness for BigSet Local, AI Runtime ABI, and Agent Flight Recorder."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.2"]
+
+[tool.setuptools.packages.find]
+include = ["runtime_lab*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

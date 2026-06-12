@@ -1,0 +1,42 @@
+{
+  "task": "local_pdf_qa",
+  "version": "0.1.0",
+  "input_schema": {
+    "type": "object",
+    "required": ["document_text", "question"],
+    "properties": {
+      "document_text": {"type": "string"},
+      "question": {"type": "string"},
+      "case_id": {"type": "string"}
+    }
+  },
+  "output_schema": {
+    "type": "object",
+    "required": ["answer", "confidence", "evidence"],
+    "properties": {
+      "answer": {"type": "string"},
+      "confidence": {"type": "number"},
+      "evidence": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "object",
+          "required": ["source_id", "quote"],
+          "properties": {
+            "source_id": {"type": "string"},
+            "quote": {"type": "string"}
+          }
+        }
+      }
+    }
+  },
+  "allowed_models": ["fake-model-provider-v1"],
+  "allowed_tools": ["local-jsonl-reader", "local-document-retriever"],
+  "side_effects": "read_only",
+  "evidence_required": true,
+  "max_cost_usd": 0.0,
+  "max_latency_ms": 1000,
+  "eval_suite": "deterministic_exact_match",
+  "fallback_policy": {"on_error": "record_failure_case"},
+  "trace_policy": {"record_inputs": true, "record_outputs": true, "record_errors": true}
+}
